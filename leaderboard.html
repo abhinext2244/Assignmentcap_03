@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+
+        }
+
+        .div-container {
+            width: 800px;
+            height: 600px;
+            border: 1px solid red;
+            margin: 0 auto;
+
+        }
+
+        .value {
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        .min {
+            width: 100px;
+            height: 60px;
+            border: 1px solid black;
+            background-color: red;
+        }
+
+        .min-max-heading{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .max {
+            width: 100px;
+            height: 60px;
+            border: 1px solid black;
+            background-color: green;
+        }
+
+        .max h2 {
+            text-align: center;
+            margin-top: 60px;
+
+        }
+
+        .score {
+            width: 200px;
+            height: 60px;
+            border: 1px solid red;
+            margin: 15px auto;
+            background-color: grey;
+        }
+
+        .score-heading {
+            text-align: center;
+        }
+
+        .box-container {
+            display: grid;
+            grid-template-columns: repeat(3, 60px);
+            grid-template-rows: repeat(5, 60px);
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .color {
+            background-color: #E95824;
+            border: none;
+        }
+
+        .zero {
+            grid-column: 2;
+            grid-row: 4/4;
+        }
+
+        .enter {
+            grid-column: 1/4;
+            grid-row: 5;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="div-container">
+            <div class="value">
+                <div class="min">43</div>
+                <div class="max">2019</div>
+            </div>
+                <div class="min-max-heading">
+                    <h2>Max</h2>
+                    <h2 class="min-heading">Min</h2>
+                </div>
+   
+            <h1 class="score-heading">Score</h1>
+            <div class="score"></div>
+            <div class="box-container">
+                <button class="color">1</button>
+                <button>2</button>
+                <button class="color">3</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button class="color">7</button>
+                <button>8</button>
+                <button class="color">9</button>
+                <button class="zero">0</button>
+                <button class="enter">ENTER</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let min = document.querySelector(".min");
+    let max = document.querySelector(".max");
+    let sco = document.querySelector(".score");
+    let button = document.querySelectorAll(".box-container>button");
+    let string = ""
+    let arr = Array.from(button);
+    console.log(arr)
+    arr.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            let ma = max.innerText 
+            let mi = min.innerText 
+            if (e.target.innerText == "ENTER") {
+                let s = sco.innerText
+                if (s > ma) {
+                    max.innerText = s
+                } else if (s < mi) {
+                    min.innerText = s
+                }
+
+            } else {
+                string += e.target.innerText
+                sco.innerHTML = string
+            }
+
+        })
+    })
+
+
+</script>
+
+</html>
