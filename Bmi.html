@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="enter kilogram" name="kg" id="kg"><br><br>
+    <input type="text" placeholder="enter centimeter" id="cm"><br><br>
+    <button>Calculate BMI</button>
+    <h2 class="result"></h2>
+</body>
+<script>
+
+    let button = document.querySelector("button")
+
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        let w = parseInt(document.querySelector("#kg").value);
+        let h = parseInt(document.querySelector("#cm").value);
+        let res = document.querySelector(".result ");
+        let ha=(h*h)/10000;
+        let cal = w / ha;
+        let calBmi =parseInt(res.innerHTML = cal)
+        // document.write(typeof(calBmi))
+        if (calBmi <= 18.5) {
+             res.innerHTML = `your Bmi:-${calBmi} which means You are UnderWeight`
+          
+        } else if (calBmi >= 18.5 && calBmi <= 24.9) {
+             res.innerHTML = `your Bmi:-${calBmi} which means You are NormalWeight`
+          
+        } else if (calBmi >= 25 && calBmi <= 29) {
+             res.innerHTML = `your Bmi:-${calBmi} which means You are overWeight`
+            
+        } else if (calBmi >= 30) {
+         res.innerHTML = `your Bmi:-${calBmi} which means your are Obese`
+          
+        }
+    })
+
+</script>
+
+</html>
